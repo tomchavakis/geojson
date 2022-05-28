@@ -54,9 +54,7 @@ func TestPointFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestPointFromJson() error = %v, wantErr %v", err, tt.err.Error())
@@ -129,7 +127,6 @@ func TestMultiPointFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -239,9 +236,7 @@ func TestPolygonFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestPolygonFromJson() error = %v, wantErr %v", err, tt.err.Error())
@@ -249,9 +244,7 @@ func TestPolygonFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			p, err := g.ToPolygon()
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestPolygonFromJson() error = %v, wantErr %v", err.Error(), tt.err.Error())
@@ -259,7 +252,6 @@ func TestPolygonFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			if got := p; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestPolygonFromJson() = %v, want %v", got, tt.want)
 			}
@@ -355,9 +347,7 @@ func TestMultiPolygonFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestMultiPolygonFromJson() error = %v, wantErr %v", err, tt.err.Error())
@@ -365,9 +355,7 @@ func TestMultiPolygonFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			p, err := g.ToMultiPolygon()
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestMultiPolygonFromJson() error = %v, wantErr %v", err.Error(), tt.err.Error())
@@ -439,9 +427,7 @@ func TestLineStringFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestLineStringFromJson() error = %v, wantErr %v", err, tt.err.Error())
@@ -449,9 +435,7 @@ func TestLineStringFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			p, err := g.ToLineString()
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestLineStringFromJson() error = %v, wantErr %v", err.Error(), tt.err.Error())
@@ -459,7 +443,6 @@ func TestLineStringFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			if got := p; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestLineStringFromJson() = %v, want %v", got, tt.want)
 			}
@@ -547,9 +530,7 @@ func TestMultiLineStringFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestMultiLineStringFromJson() error = %v, wantErr %v", err, tt.err.Error())
@@ -557,9 +538,7 @@ func TestMultiLineStringFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			p, err := g.ToMultiLineString()
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestMultiLineStringFromJson() error = %v, wantErr %v", err.Error(), tt.err.Error())
@@ -567,7 +546,6 @@ func TestMultiLineStringFromJson(t *testing.T) {
 				}
 				return
 			}
-
 			if got := p; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestMultiLineStringFromJson() = %v, want %v", got, tt.want)
 			}

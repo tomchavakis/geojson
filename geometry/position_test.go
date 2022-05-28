@@ -50,18 +50,14 @@ func TestNewPosition(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			pos := NewPosition(tt.args.altitude, tt.args.latitude, tt.args.longitude)
-
 			if got := pos; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestNewPosition() = %v, want %v", got, tt.want)
 			}
-
 			p := pos.ToPoint()
 			if p.Lat != tt.args.latitude {
 				t.Errorf("Latitude point = %v, want %v", p.Lat, tt.args.latitude)
 			}
-
 			if p.Lng != tt.args.longitude {
 				t.Errorf("longitude point = %v, want %v", p.Lng, tt.args.longitude)
 			}

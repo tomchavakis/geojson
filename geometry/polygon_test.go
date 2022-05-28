@@ -47,20 +47,17 @@ func TestNewPolygon(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			poly, err := NewPolygon([]LineString{
 				{
 					Coordinates: tt.args.pts,
 				},
 			})
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("NewPolygon() error = %v, wantErr %v", err, tt.err.Error())
 					return
 				}
 			}
-
 			if got := poly; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("NewPolygon() = %v, want %v", got, tt.want)
 			}

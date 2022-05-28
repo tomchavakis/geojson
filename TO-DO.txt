@@ -1,0 +1,38 @@
+TO-DO
+
+
+DELETE test-data
+
+All files that are not in needed test - files
+
+NEEDED TEST - FILES
+
+../test/test-data/wgs84.geometrycollection.geojson
+../test/test-data/mercator.point.geojson
+../test/test-data/mercator.linestring.geojson
+../test/test-data/wgs84.featurecollection.geojson
+
+
+Bring GoReleaser in action
+
+-   - name: Run GoReleaser 🚀
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          distribution: goreleaser
+          version: latest
+          args: build --rm-dist
+          workdir: src
+        env:
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+
+
+  - name: Release 🎓
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.changelog.outputs.tag }}
+          body: ${{ needs.changelog.outputs.body }}
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GH_PAT }}
+          files: |
+            src/dist/posh-*
+            src/dist/themes.*

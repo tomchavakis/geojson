@@ -7,37 +7,30 @@ import (
 )
 
 // Equal checks if values are equal
-func Equal(t *testing.T, a interface{}, b interface{}) {
-
+func Equal(t *testing.T, a, b interface{}) {
 	if a == nil || b == nil {
 		if a == b {
 			return
 		}
-
 	}
-
 	exp, ok := a.([]byte)
 	if !ok {
 		if reflect.DeepEqual(a, b) {
 			return
 		}
 	}
-
 	act, ok := b.([]byte)
 	if !ok {
 		t.Errorf("Received %v (type %v), expected %v (type %v)", a, reflect.TypeOf(a), b, reflect.TypeOf(b))
 	}
-
 	if exp == nil || act == nil {
 		if exp == nil && act == nil {
 			return
 		}
 	}
-
 	if bytes.Equal(exp, act) {
 		return
 	}
-
 	t.Errorf("Received %v (type %v), expected %v (type %v)", a, reflect.TypeOf(a), b, reflect.TypeOf(b))
 }
 
@@ -63,7 +56,6 @@ func isNil(object interface{}) bool {
 	if object == nil {
 		return true
 	}
-
 	value := reflect.ValueOf(object)
 	kind := value.Kind()
 	isNilableKind := containsKind(
@@ -72,11 +64,9 @@ func isNil(object interface{}) bool {
 			reflect.Interface, reflect.Map,
 			reflect.Ptr, reflect.Slice},
 		kind)
-
 	if isNilableKind && value.IsNil() {
 		return true
 	}
-
 	return false
 }
 

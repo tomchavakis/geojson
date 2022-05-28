@@ -21,7 +21,6 @@ func NewGeometryCollection(geometries []Geometry) (*Collection, error) {
 
 // CollectionFromJSON returns a new Collection by passing in a valid JSON string.
 func CollectionFromJSON(gjson string) (*Collection, error) {
-
 	if gjson == "" {
 		return nil, errors.New("input cannot be empty")
 	}
@@ -33,5 +32,4 @@ func CollectionFromJSON(gjson string) (*Collection, error) {
 	}
 
 	return &collection, nil
-
 }

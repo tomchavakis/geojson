@@ -5,12 +5,11 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/tomchavakis/geojson/assert"
 	"github.com/tomchavakis/geojson/geometry"
+	"github.com/tomchavakis/geojson/test/assert"
 )
 
 func TestNewPoint(t *testing.T) {
-
 	geom := geometry.Geometry{
 		GeoJSONType: "Point",
 		Coordinates: nil,
@@ -18,7 +17,6 @@ func TestNewPoint(t *testing.T) {
 	f, err := New(geom, []float64{-180, -90.0, 180.0, 90.0}, nil, "")
 	assert.Nil(t, err)
 	assert.NotNil(t, f)
-
 }
 
 func TestPointFromJson(t *testing.T) {
@@ -69,7 +67,6 @@ func TestPointFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -144,7 +141,6 @@ func TestMultiPointFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -254,7 +250,6 @@ func TestPolygonFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -369,7 +364,6 @@ func TestMultiPolygonFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -453,7 +447,6 @@ func TestLineStringFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {
@@ -561,7 +554,6 @@ func TestMultiLineStringFromJson(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			g, err := FromJSON(tt.args.geojson)
 
 			if (err != nil) && tt.wantErr {

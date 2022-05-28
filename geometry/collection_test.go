@@ -4,12 +4,11 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/tomchavakis/geojson/assert"
-	"github.com/tomchavakis/geojson/utils"
+	"github.com/tomchavakis/geojson/internal/utils"
+	"github.com/tomchavakis/geojson/test/assert"
 )
 
 func TestNewGeometryCollection(t *testing.T) {
-
 	p, err := FromJSON("{ \"type\" : \"Point\", \"coordinates\": [-71, 41] }")
 	assert.NotNil(t, p)
 	assert.Nil(t, err)
@@ -45,7 +44,7 @@ func TestCollectionFromJSONInvalidGeoJSON(t *testing.T) {
 }
 
 func TestCollectionFromJSON(t *testing.T) {
-	const WGS84GeometryCollection = "../../test-data/wgs84.geometrycollection.geojson"
+	const WGS84GeometryCollection = "../test/test-data/wgs84.geometrycollection.geojson"
 	p, err := utils.LoadJSONFixture(WGS84GeometryCollection)
 	if err != nil {
 		t.Errorf("LoadJSONFixture error %v", err)

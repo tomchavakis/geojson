@@ -4,14 +4,14 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/tomchavakis/geojson/assert"
 	"github.com/tomchavakis/geojson/geometry"
-	"github.com/tomchavakis/geojson/utils"
+	"github.com/tomchavakis/geojson/internal/utils"
+	"github.com/tomchavakis/geojson/test/assert"
 )
 
 func TestNewGeometryCollection(t *testing.T) {
-	const MercatorPoint = "../../test-data/mercator.point.geojson"
-	const MercatorLineString = "../../test-data/mercator.linestring.geojson"
+	const MercatorPoint = "../test/test-data/mercator.point.geojson"
+	const MercatorLineString = "../test/test-data/mercator.linestring.geojson"
 
 	p, err := utils.LoadJSONFixture(MercatorPoint)
 	if err != nil {
@@ -60,7 +60,7 @@ func TestCollectionFromJSONInvalidGeoJSON(t *testing.T) {
 }
 
 func TestCollectionFromJSON(t *testing.T) {
-	const FeatureCollection = "../../test-data/wgs84.featurecollection.geojson"
+	const FeatureCollection = "../test/test-data/wgs84.featurecollection.geojson"
 	fc, err := utils.LoadJSONFixture(FeatureCollection)
 	if err != nil {
 		t.Errorf("LoadJSONFixture error %v", err)

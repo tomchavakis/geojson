@@ -35,16 +35,13 @@ func TestNewMultiPoint(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			mpt, err := NewMultiPoint(tt.args.pts)
-
 			if (err != nil) && tt.wantErr {
 				if err.Error() != tt.err.Error() {
 					t.Errorf("TestNewMultiPoint() error = %v, wantErr %v", err, tt.err.Error())
 					return
 				}
 			}
-
 			if got := mpt; !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestNewMultiPoint() = %v, want %v", got, tt.want)
 			}

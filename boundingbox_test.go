@@ -37,7 +37,6 @@ func TestNewBoundingBox(t *testing.T) {
 	}
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-
 			bbox := NewBBox(tt.args.west, tt.args.south, tt.args.east, tt.args.north)
 
 			if got := bbox; !reflect.DeepEqual(got, tt.want) {
