@@ -19,4 +19,4 @@ jobs:
           distribution: goreleaser
           version: latest
           args: build --rm-dist --snapshot --skip-post-hooks
-          workdir: src
+          workdir: .
