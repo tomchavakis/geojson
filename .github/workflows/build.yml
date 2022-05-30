@@ -1,16 +1,6 @@
 name: Build Code
 
-on:
-  pull_request:
-    paths-ignore:
-      - "README.md"
-      - "CONTRIBUTING.md"
-      - "COPYING"
-      - ".github/*.md"
-      - ".github/FUNDING.yml"
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   build:
