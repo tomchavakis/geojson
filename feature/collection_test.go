@@ -9,7 +9,7 @@ import (
 	"github.com/tomchavakis/geojson/test/assert"
 )
 
-func TestNewGeometryCollection(t *testing.T) {
+func TestNewFeatureCollection(t *testing.T) {
 	const MercatorPoint = "../test/test-data/mercator.point.geojson"
 	const MercatorLineString = "../test/test-data/mercator.linestring.geojson"
 
