@@ -4,7 +4,7 @@ package geojson
 import "fmt"
 
 // Version is current version of this library.
-var Version = v{0, 0, 1}
+var Version = v{0, 0, 2}
 
 // v holds the version of this library.
 type v struct {
