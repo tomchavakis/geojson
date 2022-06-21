@@ -23,7 +23,7 @@ import (
 )
 
 func main() {
-	fmt.Println(dns.Version.String())
+	fmt.Println(geojson.Version.String())
 }
 endef
 
